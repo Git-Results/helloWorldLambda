@@ -4,6 +4,10 @@ pipeline {
         stage('Create Zip File') {
             steps {
                 script{
+                    fileOperations([fileDeleteOperation(excludes: '', includes: '/deploymentFile.zip')])
+                } 
+                
+                script{
                     zip dir: '', exclude: '', glob: '', zipFile: 'deploymentFile.zip'
                 } 
             }
